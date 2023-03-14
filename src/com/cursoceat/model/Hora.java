@@ -2,7 +2,7 @@ package com.cursoceat.model;
 
 public class Hora {
 
-	private int hora, minutos;
+	protected int hora, minutos;
 
 	public Hora() {
 	}
@@ -50,14 +50,14 @@ public class Hora {
 	}
 	
 	public void inc() {
-		if (minutos == 59) {
-			minutos = 0;
-			if (hora == 23)
-				hora = 0;
+		if (this.minutos == 59) {
+			this.minutos = 0;
+			if (this.hora == 23)
+				this.hora = 0;
 			else 
-				hora++;
+				this.hora++;
 		} else 
-			minutos++;
+			this.minutos++;
 	}
 	
 	@Override

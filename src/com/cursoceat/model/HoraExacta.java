@@ -2,7 +2,10 @@ package com.cursoceat.model;
 
 public class HoraExacta extends Hora {
 
-	private int segundos;
+	protected int segundos;
+
+	public HoraExacta() {
+	}
 
 	public HoraExacta(int hora, int minutos, int segundos) {
 		super(hora, minutos);
@@ -27,6 +30,33 @@ public class HoraExacta extends Hora {
 		return correcto;
 	}
 	
+	@Override
+	public void inc() {
+		if (this.segundos == 59) {
+			this.segundos = 0;
+			super.inc();
+		} else 
+			this.segundos++;
+	}
 	
+	@Override
+	public boolean equals(Object o) {
+		boolean iguales;
+		// Creamos un nuevo reloj para hacer la comparación
+		HoraExacta otroReloj = (HoraExacta) o;
+		
+		// Comparamos
+		if (this.toString().equals(otroReloj.toString()))
+			iguales = true;
+		else 
+			iguales = false;
+		
+		return iguales;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + ":" + this.segundos;
+	}
 	
 }
